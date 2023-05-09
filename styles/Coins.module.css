@@ -1,0 +1,37 @@
+.theme {
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  z-index: -2;
+}
+.theme img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.6;
+  position: absolute;
+  z-index: -1;
+  top: -10%;
+}
+
+.coins {
+  border: 2px solid red;
+  width: 100%;
+  z-index: 1 !important;
+  position: absolute;
+  top: 0;
+  display: grid;
+  justify-content: center;
+}
+.coins table {
+  border: 3px solid white;
+  color: white;
+  border-collapse: separate;
+  border-spacing: 10px;
+  position: relative;
+  top: 10%;
+}
+.coins table tbody, .coins table thead {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}/*# sourceMappingURL=Coins.module.css.map */

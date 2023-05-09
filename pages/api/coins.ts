@@ -14,16 +14,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.write(`data: ${JSON.stringify(data.data)}\n\n`);
     };
 
-   await sendCoinData();
+    sendCoinData();
 
-    // Update coin data every 5 seconds
-    const intervalId = setInterval(async () => {
-      await sendCoinData();
-    }, 5000);
+/*     const intervalId = setInterval(async () => {
+       sendCoinData();
+    }, 5000); */
 
     // Handle client connection close
     req.on('close', () => {
-      clearInterval(intervalId);
+      //clearInterval(intervalId);
       res.end();
     });
   } catch (error) {

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-
+import c from "../styles/Coins.module.css";
+import Image from 'next/image';
+import paris from "../public/paris.png";
 
 type CoinData = {
     id: string;
     name: string;
     priceUsd: string;
+    changePercent24Hr:string
   };
 
 const Coins = () => {
@@ -22,16 +25,46 @@ const Coins = () => {
       }, []);
 
 return (
-<div>
-    <h1>Coin no: {data_from_server.length}</h1>
-    <ul>
-    {data_from_server.map((item,i) => (
-        <li key={i}>
-        {item.name}: ${item.priceUsd}
-        </li>
-    ))}
-    </ul>
-</div>
+<>
+    <div className={c.theme}>
+        <Image src={paris} alt={"paris"} />
+    </div>
+    <div className={c.coins}>
+        <table>
+            <thead>
+                <tr>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                {data_from_server.map((item,i) => (
+                    <tr key={i}>
+                        <td><abbr title={item.name}>{item.name.substring(0,9)}</abbr></td>
+                        <td>${item.priceUsd.substring(0,7)}</td>
+                        <td>{item.changePercent24Hr.substring(0,5)}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+        </div>
+</>
 );
 }
 
