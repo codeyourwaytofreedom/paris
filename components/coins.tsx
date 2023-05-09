@@ -14,29 +14,18 @@ const Coins = () => {
         const eventSource = new EventSource('/api/coins');
         eventSource.onmessage = (event) => {
           const eventData = JSON.parse(event.data);
-          console.log(data_from_server.some(d => d.id === eventData.id))
-
-/*           if (eventData.id === "holo") {
-            console.log(data_from_server.some(d => d.id === "holo"))
-            if(data_from_server.some(d => d.id === "holo")){
-                //console.log("yessss, found it: available")
-            }
-            else{
-                setData(prevData => [...prevData, eventData])
-            }
-          } */
+          setData(eventData)
         };
         return () => {
           eventSource.close();
         };
       }, []);
-      
 
 return (
 <div>
     <h1>Coin no: {data_from_server.length}</h1>
     <ul>
-    {data_from_server.slice(0,10).map((item,i) => (
+    {data_from_server.map((item,i) => (
         <li key={i}>
         {item.name}: ${item.priceUsd}
         </li>

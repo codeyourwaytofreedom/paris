@@ -11,19 +11,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Make the API request
       const response = await fetch("https://api.coincap.io/v2/assets");
       const data = await response.json();
-
-      // Format the data and send to client
-      data.data.forEach((item: any) => {
-        const eventData = {
-          id: item.id,
-          name: item.name,
-          priceUsd: item.priceUsd
-        };
-        res.write(`data: ${JSON.stringify(eventData)}\n\n`);
-      });
+      res.write(`data: ${JSON.stringify(data.data)}\n\n`);
     };
 
-    sendCoinData();
+   await sendCoinData();
 
     // Update coin data every 5 seconds
     const intervalId = setInterval(async () => {
