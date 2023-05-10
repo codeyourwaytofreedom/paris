@@ -1,8 +1,8 @@
 .theme{
     height: 100vh;
-    background-color: black;
     position: relative;
     z-index: -2;
+    color: white;
     img{
         width: 100%;
         //height: 100%;
@@ -12,26 +12,91 @@
         z-index: -1;
         top: -10%;
     }
+    &_line{
+        //border: 2px solid goldenrod;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:10px;
+        padding: 10px 30px;
+        &_cells{
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1vw;
+            &_each{
+                display: grid;
+                align-items: center;
+                background-color: rgba($color: goldenrod, $alpha: 0.2);
+                padding: 5px 30px;
+                max-width: 300px;
+            }
+        }
+    }
 }
 
 .coins{
     border:2px solid red;
     width: 100%;
     z-index: 1 !important;
-    position: absolute;
-    top: 0;
     display: grid;
     justify-content: center;
     table{
         border: 3px solid white;
-        color: white;
         border-collapse: separate;
         border-spacing: 10px;
         position: relative;
-        top:10%;
+        color: darkgoldenrod;
         tbody,thead{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
     }
 }
+
+
+
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+    .theme{
+        &_line{
+            padding: 10px;
+            &_cells{
+                &_each{
+                    background-color: rgba($color: blue, $alpha: 0.3);
+                }
+            }
+        }
+    }
+ }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+    .theme{
+        &_line{
+            grid-template-columns: 1fr;
+            &_cells{
+                &_each{
+                    background-color: rgba($color: green, $alpha: 0.3);
+                }
+            }
+        }
+    }
+ }
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+    .theme{
+        &_line{
+            &_cells{
+                grid-template-columns: 1fr;
+                &_each{
+                }
+            }
+        }
+    }
+ }
+
+
+

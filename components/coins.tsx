@@ -28,6 +28,21 @@ return (
 <>
     <div className={c.theme}>
         <Image src={paris} alt={"paris"} />
+        <h1>
+            Cryptomonnaies en temps réel
+        </h1>
+        <br />
+        <br />
+        <div className={c.theme_line}>
+            <div className={c.theme_line_cells}>
+                <div className={c.theme_line_cells_each}>Hello Cell</div>
+                <div className={c.theme_line_cells_each}>Hello Cell</div>
+            </div>
+            <div className={c.theme_line_cells}>
+                <div className={c.theme_line_cells_each}>Hello Cell</div>
+                <div className={c.theme_line_cells_each}>Hello Cell</div>
+            </div>
+        </div>
     </div>
     <div className={c.coins}>
         <table>
