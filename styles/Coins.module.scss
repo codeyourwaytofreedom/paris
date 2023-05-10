@@ -1,35 +1,40 @@
+
 .theme{
-    height: 100vh;
     position: relative;
+    height: 400px;
     z-index: -2;
     color: white;
+    #green, #purple, #red{
+        display: none;
+    }
     img{
-        width: 70%;
-        height: 70%;
-        object-fit: cover;
+        height: 100%;
+        width: 100vw;
+        object-fit: contain;
         opacity: 0.6;
         position: absolute;
-        left: 15%;
         z-index: -1;
-        top: -5%;
     }
-    &_line, &_bulk{
+    &_line{
         //border: 2px solid goldenrod;
+        position: relative;
+        top:10%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap:10px;
         padding: 10px 30px;
         &_cells{
             color: white;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: center;
             gap: 1vw;
             &_each{
                 display: grid;
                 align-items: center;
-                background-color: rgba($color: goldenrod, $alpha: 0.3);
+                background-color: rgba($color: goldenrod, $alpha: 1);
                 padding: 5px 10px;
                 max-width: 280px;
+                border-radius: 5px;
                 h3{
                     text-decoration: underline;
                 }
@@ -42,37 +47,16 @@
             }
         }
     }
-    &_bulk{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap:10px;
-        padding: 10px 30px;
-        &_each{
-            display: grid;
-            justify-content: center;
-            &_kernel{
-                background-color: rgba($color: gold, $alpha: 0.1);
-                width: 40vw;
-                max-width: 400px;
-                height: 200px;
-                display: grid;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-    }
 }
 
 .coins{
-    position: absolute;
-    top: 400px;
-    border:2px solid blue;
+    position: relative;
     width: 100%;
     z-index: 1 !important;
     display: grid;
     justify-content: center;
+    top:-40px;
     table{
-        border: 3px solid white;
         border-collapse: separate;
         border-spacing: 10px;
         position: relative;
@@ -80,10 +64,17 @@
         tbody,thead{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 1vw;
         }
         tr{
             display: grid;
-            grid-template-columns: 2fr 2fr 1fr;
+            grid-template-columns: 1fr 1fr 0.7fr;
+            column-gap: 5px;
+            th{
+                display: grid;
+                justify-content: start;
+                text-decoration: underline;
+            }
         }
     }
 }
@@ -95,14 +86,28 @@
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) { 
     .theme{
+        #green, #gold, #red{display: none;}
+        #purple{display: block;}
         &_line{
             padding: 10px;
             &_cells{
                 &_each{
-                    background-color: rgba($color: purple, $alpha: 0.3);
+                    background-color: rgba($color: purple, $alpha: 1);
                     max-width: none;
                     h3{font-size: medium;}
                 }
+            }
+        }
+    }
+    .coins{
+        table{
+            color: rgb(156,138,193);
+            color: purple;
+            #four{
+                display: none;
+            }
+            tbody,thead{
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
     }
@@ -111,12 +116,34 @@
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) { 
     .theme{
+        #purple, #gold, #red{display: none;}
+        #green{display: block;}
+        img{
+            object-fit: cover;
+        }
         &_line{
             grid-template-columns: 1fr;
             &_cells{
+                display: grid;
+                grid-template-columns: 35vw 35vw;
+                column-gap: 10vw;
                 &_each{
-                    background-color: rgba($color: green, $alpha: 0.3);
+                    background-color: rgba($color: green, $alpha: 1);
+                    justify-content: center;
+
                 }
+            }
+        }
+    }
+    .coins{
+        table{
+            color: green;
+            #three{
+                display: none;
+            }
+            tbody,thead{
+                grid-template-columns: 1fr 1fr;
+                column-gap: 5vw;
             }
         }
     }
@@ -125,11 +152,42 @@
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { 
     .theme{
+        height: 200px;
+        img{
+            opacity: 1; 
+            object-fit: contain;
+            position: relative;
+            top: -10px;
+        }
+        #purple, #gold, #green{display: none;}
+        #red{display: block;}
         &_line{
+            position: relative;
+            top:-40px;
             &_cells{
-                grid-template-columns: 1fr;
+                grid-template-columns: 80vw;
                 &_each{
+                    background-color: rgba($color: black, $alpha: 0.8);
+                    &_detail{
+                        padding-top: 5px;
+                    }
                 }
+            }
+        }
+        margin-bottom: 250px;
+    }
+    .coins{
+        //top:220px;
+        table{
+            color: rgb(178, 13, 7);
+            #two{
+                display: none;
+            }
+            tbody,thead{
+                grid-template-columns: 1fr;
+            }
+            tr{
+                column-gap: 5vw;
             }
         }
     }

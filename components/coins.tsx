@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import c from "../styles/Coins.module.css";
 import Image from 'next/image';
-import paris from "../public/paris.png";
+import paris_gold from "../public/paris.png";
+import paris_green from "../public/paris_green.png";
+import paris_purple from "../public/paris_purple.png";
+import paris_red from "../public/paris_red.png";
+
 import {compare_by_name,compare_price} from "./sort";
 
 type CoinData = {
@@ -60,15 +64,12 @@ const Coins = () => {
 return (
 <>
     <div className={c.theme}>
-        <Image src={paris} alt={"paris"} priority />
-        <h1>Cryptomonnaies en temps réel</h1>
-        <br />
-        <br />
+        <Image id={c.gold} src={paris_gold} alt={"paris"} priority />
+        <Image id={c.green} src={paris_green} alt={"paris"} priority />
+        <Image id={c.purple} src={paris_purple} alt={"paris"} priority />
+        <Image id={c.red} src={paris_red} alt={"paris"} priority />
         <div className={c.theme_line}>
-            <div className={c.theme_line_cells}>
-
-
-
+            <div id={c.left} className={c.theme_line_cells}>
                 <div className={c.theme_line_cells_each}>
                     <h3>Le prix le plus haut</h3>
                     {
@@ -97,7 +98,7 @@ return (
                     }
                 </div>
             </div>
-            <div className={c.theme_line_cells}>
+            <div id={c.right} className={c.theme_line_cells}>
                 <div className={c.theme_line_cells_each}>
                     <h3>La plus forte hausse</h3>
                     {
@@ -124,21 +125,8 @@ return (
                 </div>
             </div>
         </div>
-
-{/* 
-        <div className={c.theme_bulk}>
-                <div className={c.theme_bulk_each}>
-                    <div className={c.theme_bulk_each_kernel}>One</div>
-                </div>
-                <div className={c.theme_bulk_each}>
-                    <div className={c.theme_bulk_each_kernel}>Two</div>
-                </div>
-        </div> */}
-
-
-
-
     </div>
+
     <div className={c.coins}>
         <table>
             <thead>
@@ -147,17 +135,17 @@ return (
                     <th>Price</th>
                     <th>Change</th>
                 </tr>
-                <tr>
+                <tr id={c.two}>
                     <th>Coin</th>
                     <th>Price</th>
                     <th>Change</th>
                 </tr>
-                <tr>
+                <tr id={c.three}>
                     <th>Coin</th>
                     <th>Price</th>
                     <th>Change</th>
                 </tr>
-                <tr>
+                <tr id={c.four}>
                     <th>Coin</th>
                     <th>Price</th>
                     <th>Change</th>
@@ -173,7 +161,7 @@ return (
                 ))}
             </tbody>
         </table>
-        </div>
+    </div>
 </>
 );
 }

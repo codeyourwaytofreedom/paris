@@ -1,79 +1,62 @@
 .theme {
-  height: 100vh;
   position: relative;
+  height: 400px;
   z-index: -2;
   color: white;
 }
+.theme #green, .theme #purple, .theme #red {
+  display: none;
+}
 .theme img {
-  width: 70%;
-  height: 70%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 100%;
+  width: 100vw;
+  -o-object-fit: contain;
+     object-fit: contain;
   opacity: 0.6;
   position: absolute;
-  left: 15%;
   z-index: -1;
-  top: -5%;
 }
-.theme_line, .theme_bulk {
+.theme_line {
+  position: relative;
+  top: 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 10px 30px;
 }
-.theme_line_cells, .theme_bulk_cells {
+.theme_line_cells {
   color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
   gap: 1vw;
 }
-.theme_line_cells_each, .theme_bulk_cells_each {
+.theme_line_cells_each {
   display: grid;
   align-items: center;
-  background-color: rgba(218, 165, 32, 0.3);
+  background-color: goldenrod;
   padding: 5px 10px;
   max-width: 280px;
+  border-radius: 5px;
 }
-.theme_line_cells_each h3, .theme_bulk_cells_each h3 {
+.theme_line_cells_each h3 {
   text-decoration: underline;
 }
-.theme_line_cells_each_detail, .theme_bulk_cells_each_detail {
+.theme_line_cells_each_detail {
   display: flex;
   gap: 5px;
   padding-top: 10px;
   font-size: medium;
 }
-.theme_bulk {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px 30px;
-}
-.theme_bulk_each {
-  display: grid;
-  justify-content: center;
-}
-.theme_bulk_each_kernel {
-  background-color: rgba(255, 215, 0, 0.1);
-  width: 40vw;
-  max-width: 400px;
-  height: 200px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
 
 .coins {
-  position: absolute;
-  top: 400px;
-  border: 2px solid blue;
+  position: relative;
   width: 100%;
   z-index: 1 !important;
   display: grid;
   justify-content: center;
+  top: -40px;
 }
 .coins table {
-  border: 3px solid white;
   border-collapse: separate;
   border-spacing: 10px;
   position: relative;
@@ -82,34 +65,127 @@
 .coins table tbody, .coins table thead {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  -moz-column-gap: 1vw;
+       column-gap: 1vw;
 }
 .coins table tr {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 0.7fr;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.coins table tr th {
+  display: grid;
+  justify-content: start;
+  text-decoration: underline;
 }
 
 @media (max-width: 991.98px) {
+  .theme #green, .theme #gold, .theme #red {
+    display: none;
+  }
+  .theme #purple {
+    display: block;
+  }
   .theme_line {
     padding: 10px;
   }
   .theme_line_cells_each {
-    background-color: rgba(128, 0, 128, 0.3);
+    background-color: purple;
     max-width: none;
   }
   .theme_line_cells_each h3 {
     font-size: medium;
   }
+  .coins table {
+    color: rgb(156, 138, 193);
+    color: purple;
+  }
+  .coins table #four {
+    display: none;
+  }
+  .coins table tbody, .coins table thead {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 @media (max-width: 767.98px) {
+  .theme #purple, .theme #gold, .theme #red {
+    display: none;
+  }
+  .theme #green {
+    display: block;
+  }
+  .theme img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
   .theme_line {
     grid-template-columns: 1fr;
   }
+  .theme_line_cells {
+    display: grid;
+    grid-template-columns: 35vw 35vw;
+    -moz-column-gap: 10vw;
+         column-gap: 10vw;
+  }
   .theme_line_cells_each {
-    background-color: rgba(0, 128, 0, 0.3);
+    background-color: green;
+    justify-content: center;
+  }
+  .coins table {
+    color: green;
+  }
+  .coins table #three {
+    display: none;
+  }
+  .coins table tbody, .coins table thead {
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 5vw;
+         column-gap: 5vw;
   }
 }
 @media (max-width: 575.98px) {
+  .theme {
+    height: 200px;
+    margin-bottom: 250px;
+  }
+  .theme img {
+    opacity: 1;
+    -o-object-fit: contain;
+       object-fit: contain;
+    position: relative;
+    top: -10px;
+  }
+  .theme #purple, .theme #gold, .theme #green {
+    display: none;
+  }
+  .theme #red {
+    display: block;
+  }
+  .theme_line {
+    position: relative;
+    top: -40px;
+  }
   .theme_line_cells {
+    grid-template-columns: 80vw;
+  }
+  .theme_line_cells_each {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .theme_line_cells_each_detail {
+    padding-top: 5px;
+  }
+  .coins table {
+    color: rgb(178, 13, 7);
+  }
+  .coins table #two {
+    display: none;
+  }
+  .coins table tbody, .coins table thead {
     grid-template-columns: 1fr;
+  }
+  .coins table tr {
+    -moz-column-gap: 5vw;
+         column-gap: 5vw;
   }
 }/*# sourceMappingURL=Coins.module.css.map */
