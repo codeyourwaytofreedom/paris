@@ -141,7 +141,7 @@ return (
                 </tr>
             </thead>
             <tbody>
-                {data_from_server.sort(compare_by_name("asc")).slice(0,50).map((item,i) => (
+                {data_from_server.sort(compare_by_name("asc")).slice(0,100).map((item,i) => (
                     <tr key={i}>
                         <td><abbr title={item.name}>{item.name.substring(0,9)}</abbr></td>
                         <td>${item.priceUsd.substring(0,8)}</td>
