@@ -14,6 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const response = await fetch("https://api.coincap.io/v2/assets");
       const data = await response.json();
       res.write(`data: ${JSON.stringify(data.data)}\n\n`);
+      res.end();
     };
 
     await sendCoinData();
