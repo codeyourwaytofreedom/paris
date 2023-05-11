@@ -30,37 +30,28 @@ const Coins = () => {
         const eventSource = new EventSource('/api/coins');
         eventSource.onmessage = (event) => {
           const eventData = JSON.parse(event.data);
-          setData(eventData)
-          console.log(eventData)
+          setData(eventData);
+          const highest_price = eventData.sort(compare_price<CoinData>('priceUsd', 'desc'))[0]
+          const lowest_price = eventData.sort(compare_price<CoinData>('priceUsd', 'asc'))[0]
+          //.priceUsd.substring(0,8);
+
+          const sharpest_rise = eventData.sort(compare_price<CoinData>('changePercent24Hr', 'desc'))[0]
+          const sharpest_fall = eventData.sort(compare_price<CoinData>('changePercent24Hr', 'asc'))[0]
+          //.changePercent24Hr.substring(0,5)
+
+          setSuperlatives({
+              highest_price:highest_price,
+              lowest_price:lowest_price,
+              sharpest_rise:sharpest_rise,
+              sharpest_fall:sharpest_fall,
+          })
         };
         return () => {
           eventSource.close();
         };
       }, []);
-    
-    useEffect(()=>{
-        if(data_from_server.length !== 0){
-            const highest_price = data_from_server.sort(compare_price<CoinData>('priceUsd', 'desc'))[0]
-            const lowest_price = data_from_server.sort(compare_price<CoinData>('priceUsd', 'asc'))[0]
-            //.priceUsd.substring(0,8);
 
-            const sharpest_rise = data_from_server.sort(compare_price<CoinData>('changePercent24Hr', 'desc'))[0]
-            const sharpest_fall = data_from_server.sort(compare_price<CoinData>('changePercent24Hr', 'asc'))[0]
-            //.changePercent24Hr.substring(0,5)
-
-            setSuperlatives({
-                highest_price:highest_price,
-                lowest_price:lowest_price,
-                sharpest_rise:sharpest_rise,
-                sharpest_fall:sharpest_fall,
-            })
-
-            console.log(highest_price, lowest_price)
-            console.log(sharpest_rise, sharpest_fall)
-        }
-
-    },[data_from_server])
-
+      
 return (
 <>
     <div className={c.theme}>
