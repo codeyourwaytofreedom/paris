@@ -19,13 +19,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     await sendCoinData();
 
-/*     const intervalId = setInterval(async () => {
-       sendCoinData();
-    }, 5000); */
-
     // Handle client connection close
     req.on('close', () => {
-      //clearInterval(intervalId);
       res.end();
     });
   } catch (error) {

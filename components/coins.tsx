@@ -51,7 +51,7 @@ const Coins = () => {
         };
       }, []);
 
-      
+
 return (
 <>
     <div className={c.theme}>
@@ -146,8 +146,8 @@ return (
                 {data_from_server.sort(compare_by_name("asc")).slice(0,50).map((item,i) => (
                     <tr key={i}>
                         <td><abbr title={item.name}>{item.name.substring(0,9)}</abbr></td>
-                        <td>${item.priceUsd.substring(0,7)}</td>
-                        <td>{item.changePercent24Hr.substring(0,5)}</td>
+                        <td>${item.priceUsd.substring(0,10)}</td>
+                        <td>{item.changePercent24Hr.substring(0,7)}</td>
                     </tr>
                 ))}
             </tbody>
