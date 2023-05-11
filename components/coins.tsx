@@ -120,24 +120,24 @@ return (
         <table>
             <thead>
                 <tr>
-                    <th>Coin</th>
-                    <th>Price</th>
-                    <th>Change</th>
+                    <th>Pièce</th>
+                    <th>Valeur</th>
+                    <th>Variation</th>
                 </tr>
                 <tr id={c.two}>
-                    <th>Coin</th>
-                    <th>Price</th>
-                    <th>Change</th>
+                    <th>Pièce</th>
+                    <th>Valeur</th>
+                    <th>Variation</th>
                 </tr>
                 <tr id={c.three}>
-                    <th>Coin</th>
-                    <th>Price</th>
-                    <th>Change</th>
+                    <th>Pièce</th>
+                    <th>Valeur</th>
+                    <th>Variation</th>
                 </tr>
                 <tr id={c.four}>
-                    <th>Coin</th>
-                    <th>Price</th>
-                    <th>Change</th>
+                    <th>Pièce</th>
+                    <th>Valeur</th>
+                    <th>Variation</th>
                 </tr>
             </thead>
             <tbody>
