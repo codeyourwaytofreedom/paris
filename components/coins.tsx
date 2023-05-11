@@ -27,7 +27,7 @@ const Coins = () => {
     const [superlatives, setSuperlatives] = useState<superlatives>();
 
     useEffect(() => {
-        const eventSource = new EventSource('https://paris-virid.vercel.app/api/coins');
+        const eventSource = new EventSource('/api/coins');
         eventSource.onmessage = (event) => {
           const eventData = JSON.parse(event.data);
           setData(eventData)
