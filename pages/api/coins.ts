@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.write(`data: ${JSON.stringify(data.data)}\n\n`);
     };
 
-    sendCoinData();
+    await sendCoinData();
 
 /*     const intervalId = setInterval(async () => {
        sendCoinData();
