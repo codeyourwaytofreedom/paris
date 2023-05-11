@@ -33,11 +33,9 @@ const Coins = () => {
           setData(eventData);
           const highest_price = eventData.sort(compare_price<CoinData>('priceUsd', 'desc'))[0]
           const lowest_price = eventData.sort(compare_price<CoinData>('priceUsd', 'asc'))[0]
-          //.priceUsd.substring(0,8);
 
           const sharpest_rise = eventData.sort(compare_price<CoinData>('changePercent24Hr', 'desc'))[0]
           const sharpest_fall = eventData.sort(compare_price<CoinData>('changePercent24Hr', 'asc'))[0]
-          //.changePercent24Hr.substring(0,5)
 
           setSuperlatives({
               highest_price:highest_price,
@@ -146,8 +144,8 @@ return (
                 {data_from_server.sort(compare_by_name("asc")).slice(0,50).map((item,i) => (
                     <tr key={i}>
                         <td><abbr title={item.name}>{item.name.substring(0,9)}</abbr></td>
-                        <td>${item.priceUsd.substring(0,10)}</td>
-                        <td>{item.changePercent24Hr.substring(0,7)}</td>
+                        <td>${item.priceUsd.substring(0,8)}</td>
+                        <td>{item.changePercent24Hr.substring(0,5)}</td>
                     </tr>
                 ))}
             </tbody>
