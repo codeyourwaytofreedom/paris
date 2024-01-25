@@ -60,7 +60,7 @@ return (
         <div className={c.theme_line}>
             <div id={c.left} className={c.theme_line_cells}>
                 <div className={c.theme_line_cells_each}>
-                    <h3>Le prix le plus haut</h3>
+                    <h3>Le prix le plus haut--</h3>
                     {
                         superlatives && 
                         <>
